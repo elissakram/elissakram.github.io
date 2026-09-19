@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="正品篮球鞋折扣店提供耐克、阿迪达斯、李宁等品牌篮球鞋正品保障、低价折扣和尺码齐全服务。支持货到付款，正品验货，全国包邮。">
+    <meta name="keywords" content="正品篮球鞋折扣店,篮球鞋,球鞋折扣,耐克篮球鞋,阿迪达斯篮球鞋,李宁篮球鞋,球鞋代购">
+    <title>正品篮球鞋折扣店-正品保障低价球鞋选购指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --accent-color: #f1faee;
+            --text-color: #333;
+            --light-text: #666;
+            --bg-color: #f8f9fa;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: var(--secondary-color);
+            color: #fff;
+            font-size: 0.85rem;
+            padding: 8px 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 600;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #d62839;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #457b9d 100%);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 20%),
+                              radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 20%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 15px 25px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .search-box button {
+            padding: 0 30px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background-color: #d62839;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+            background: #fff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-item {
+            padding: 20px;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            background-color: #f1f1f1;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        /* Categories */
+        .categories {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--light-text);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #eee;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .category-img {
+            width: 100%;
+            height: 120px;
+            background-color: #eee;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        .category-card h3 {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+        }
+
+        /* Product Section */
+        .products {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 220px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 0 15px 15px;
+        }
+
+        .product-brand {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            margin: 5px 0;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .price-current {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+
+        .price-original {
+            font-size: 0.9rem;
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .discount-tag {
+            background-color: #e63946;
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #a8dadc;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #a8dadc;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .header-main { flex-direction: column; gap: 15px; }
+            nav ul { gap: 15px; font-size: 0.9rem; }
+            .header-actions { width: 100%; justify-content: center; }
+            .search-box { flex-direction: column; border-radius: 12px; }
+            .search-box button { width: 100%; padding: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            正品承诺：100%正品保障 · 货到付款 · 全国包邮 · 7天无理由退换
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-main">
+                <a href="#" class="logo">
+                    <span>🏀</span> 正品篮球鞋折扣店
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active">首页</a></li>
+                        <li><a href="#">热门球鞋</a></li>
+                        <li><a href="#">新款上市</a></li>
+                        <li><a href="#">尺码指南</a></li>
+                        <li><a href="#">品牌专区</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn btn-outline">登录</button>
+                    <button class="btn btn-primary">注册</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>正品篮球鞋折扣店</h1>
+            <p>精选全球热销球鞋，正品保障，价格低于专柜。满足你从实战到潮流的球鞋需求。</p>
+            <div class="search-box">
+                <input type="text" placeholder="搜索球鞋型号（如：AJ1, KD15, 李宁韦德之道）">
+                <button>搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container features-grid">
+            <div class="feature-item">
+                <span class="feature-icon">🛡️</span>
+                <h3>100%正品保障</h3>
+                <p>官方渠道进货，支持验货，假一赔十，让您购物无忧。</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🚚</span>
+                <h3>全国包邮</h3>
+                <p>全场满额包邮，顺丰/京东快递极速发货，物流可查。</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">💳</span>
+                <h3>货到付款</h3>
+                <p>支持货到付款，收到货检查无误后再付款，交易安全。</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">👟</span>
+                <h3>尺码齐全</h3>
+                <p>提供从36码到52码全尺码，满足不同脚型需求。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>热门球鞋分类</h2>
+                <p>按品牌或功能快速找到心仪的球鞋</p>
+            </div>
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="https://picsum.photos/seed/nike/200/120" alt="耐克篮球鞋" class="category-img">
+                    <h3>耐克 (Nike)</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://picsum.photos/seed/adidas/200/120" alt="阿迪达斯篮球鞋" class="category-img">
+                    <h3>阿迪达斯 (Adidas)</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://picsum.photos/seed/li Ning/200/120" alt="李宁篮球鞋" class="category-img">
+                    <h3>李宁 (Li-Ning)</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://picsum.photos/seed/curry/200/120" alt="库里系列" class="category-img">
+                    <h3>库里系列</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://picsum.photos/seed/kobe/200/120" alt="科比系列" class="category-img">
+                    <h3>科比系列</h3>
+                </div>
+                <div class="category-card">
+                    <img src="https://picsum.photos/seed/jordan/200/120" alt="AJ篮球鞋" class="category-img">
+                    <h3>AJ篮球鞋</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>本周热销折扣</h2>
+                <p>精选高性价比正品球鞋，限时优惠</p>
+            </div>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <article class="product-card">
+                    <span class="badge">热销</span>
+                    <img src="https://picsum.photos/seed/shoe1/300/300" alt="Nike Air Zoom" class="product-img">
+                    <div class="product-info">
+                        <div class="product-brand">NIKE</div>
+                        <h3 class="product-title">Nike Air Zoom G.T. Cut 3 实战篮球鞋</h3>
+                        <div class="product-price">
+                            <span class="price-current">¥799</span>
+                            <span class="price-original">¥1299</span>
+                            <span class="discount-tag">6折</span>
+                        </div>
+                        <button class="btn btn-primary" style="width:100%; margin-top:15px;">立即购买</button>
+                    </div>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="product-card">
+                    <span class="badge" style="background-color:#457b9d;">新品</span>
+                    <img src="https://picsum.photos/seed/shoe2/300/300" alt="Adidas Harden" class="product-img">
+                    <div class="product-info">
+                        <div class="product-brand">ADIDAS</div>
+                        <h3 class="product-title">Adidas Harden Vol.7 篮球鞋 欧文同款</h3>
+                        <div class="product-price">
+                            <span class="price-current">¥849</span>
+                            <span class="price-original">¥1199</span>
+                            <span class="discount-tag">7折</span>
+                        </div>
+                        <button class="btn btn-primary" style="width:100%; margin-top:15px;">立即购买</button>
+                    </div>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="product-card">
+                    <span class="badge" style="background-color:#e63946;">特价</span>
+                    <img src="https://picsum.photos/seed/shoe3/300/300" alt="Li-Ning Way of Wade" class="product-img">
+                    <div class="product-info">
+                        <div class="product-brand">李宁</div>
+                        <h3 class="product-title">李宁 韦德之道9 全城系列 篮球鞋</h3>
+                        <div class="product-price">
+                            <span class="price-current">¥459</span>
+                            <span class="price-original">¥899</span>
+                            <span class="discount-tag">5折</span>
+                        </div>
+                        <button class="btn btn-primary" style="width:100%; margin-top:15px;">立即购买</button>
+                    </div>
+                </article>
+
+                <!-- Product 4 -->
+                <article class="product-card">
+                    <span class="badge">热销</span>
+                    <img src="https://picsum.photos/seed/shoe4/300/300" alt="Curry Flow" class="product-img">
+                    <div class="product-info">
+                        <div class="product-brand">Under Armour</div>
+                        <h3 class="product-title">Under Armour Curry 9 Flow 篮球鞋</h3>
+                        <div class="product-price">
+                            <span class="price-current">¥899</span>
+                            <span class="price-original">¥1299</span>
+                            <span class="discount-tag">7折</span>
+                        </div>
+                        <button class="btn btn-primary" style="width:100%; margin-top:15px;">立即购买</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Section -->
+    <section class="categories" style="background-color: #fff;">
+        <div class="container">
+            <div class="section-title">
+                <h2>选购指南</h2>
+                <p>如何挑选一双适合自己的实战篮球鞋</p>
+            </div>
+            <div class="category-grid">
+                <div class="category-card" style="text-align: left;">
+                    <h3>1. 确定场地类型</h3>
+                    <p style="font-size:0.9rem; color:#666; margin-top:10px;">木地板、塑胶地、水泥地对鞋底耐磨性要求不同，需根据实际场地选择。</p>
+                </div>
+                <div class="category-card" style="text-align: left;">
+                    <h3>2. 关注鞋面支撑</h3>
+                    <p style="font-size:0.9rem; color:#666; margin-top:10px;">后卫需要轻便灵敏，前锋需要包裹性，内线需要抗扭和减震。</p>
+                </div>
+                <div class="category-card" style="text-align: left;">
+                    <h3>3. 试穿与尺码</h3>
+                    <p style="font-size:0.9rem; color:#666; margin-top:10px;">建议下午试穿，脚部有轻微肿胀，避免买小。建议预留1cm脚趾空间。</p>
+                </div>
+                <div class="category-card" style="text-align: left;">
+                    <h3>4. 查看鞋底科技</h3>
+                    <p style="font-size:0.9rem; color:#666; margin-top:10px;">Zoom Air提供回弹，Boost提供缓震，Bounce提供综合性能。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>正品篮球鞋折扣店</h4>
+                    <p style="color: #a8dadc; font-size: 0.9rem; line-height: 1.8;">
+                        专注正品球鞋折扣销售，致力于为广大球鞋爱好者提供高性价比的购鞋体验。我们与各大品牌官方保持密切合作，确保每一双鞋都来源可靠。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">品牌授权</a></li>
+                        <li><a href="#">尺码对照表</a></li>
+                        <li><a href="#">物流配送</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>客户服务</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">退换货政策</a></li>
+                        <li><a href="#">验货流程</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul class="footer-links">
+                        <li>电话：400-123-4567</li>
+                        <li>邮箱：service@shoes-shop.com</li>
+                        <li>工作时间：9:00 - 21:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 正品篮球鞋折扣店 版权所有 | 郑分市网信办备案号：XXXXXXXXX</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                                  </html>

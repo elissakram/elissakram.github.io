@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ady9映画放屏蔽官网 - 影视内容屏蔽与合规解决方案</title>
+    <meta name="description" content="ady9映画放屏蔽官网提供专业的影视内容屏蔽技术方案与合规服务，帮助用户屏蔽不良影视信息，净化网络环境，保障观影安全与隐私。">
+    <meta name="keywords" content="ady9映画放屏蔽官网, 影视屏蔽, 网络净化, 内容过滤, 影视合规">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a1f2c;
+            --accent-color: #e50914;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --bg-body: #f4f6f8;
+            --bg-card: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #c11119;
+            border-color: #c11119;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid #ddd;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c3e50 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: rgba(229, 9, 20, 0.1);
+            color: var(--accent-color);
+            padding: 12px;
+            border-radius: 50%;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Usage Steps */
+        .steps {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .step-item {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step-item h3 {
+            margin-bottom: 10px;
+        }
+
+        .step-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 60px 0;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            background: white;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-secondary);
+            display: none;
+            border-top: 1px solid #eee;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--accent-color);
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                position: relative;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span>ady9</span>屏蔽
+            </div>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#features">功能特性</a></li>
+                    <li><a href="#steps">使用指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>ady9映画放屏蔽官网</h1>
+                <p>专业的影视内容屏蔽与过滤解决方案。通过精准识别与屏蔽功能，为您构建纯净、安全的观影环境，过滤不适宜内容，保护用户隐私与设备安全。</p>
+                <div class="hero-actions">
+                    <a href="#features" class="btn btn-primary">了解功能</a>
+                    <a href="#steps" class="btn btn-outline" style="color: white; border-color: white;">查看教程</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>核心屏蔽功能</h2>
+                    <p>基于先进的识别算法，为您提供多维度、高精度的内容过滤服务。</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>精准识别屏蔽</h3>
+                        <p>针对特定影视内容库（如ady9相关平台）进行关键词与特征码匹配，有效屏蔽目标页面，防止误触与访问。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🚫</div>
+                        <h3>违规内容拦截</h3>
+                        <p>自动拦截含有不良导向、违规信息或诱导性弹窗的网页链接，维护网络空间的健康秩序。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>隐私安全保护</h3>
+                        <p>屏蔽不合规网站的同时，阻断其追踪代码与Cookie，防止用户浏览行为被恶意收集与利用。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="steps" class="steps">
+            <div class="container">
+                <div class="section-header">
+                    <h2>快速使用指南</h2>
+                    <p>简单三步，即可在您的设备上启用ady9屏蔽服务。</p>
+                </div>
+                <div class="steps-container">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <h3>下载安装插件</h3>
+                        <p>访问官方资源，下载适配您浏览器版本的屏蔽插件安装包。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <h3>启用过滤规则</h3>
+                        <p>在插件设置面板中，开启“ady9屏蔽”或“影视净化”规则集。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <h3>完成验证</h3>
+                        <p>刷新页面或访问目标网站，系统将自动识别并执行屏蔽操作。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                    <p>关于ady9屏蔽功能的常见疑问与解决方案。</p>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            屏蔽插件是否会影响浏览器速度？
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            我们的插件经过深度优化，仅占用极少量的系统资源。在执行屏蔽逻辑时对页面加载速度的影响微乎其微，不会明显拖慢浏览器运行。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            屏蔽规则多久更新一次？
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            为了应对网站结构的变动，我们的规则库会定期进行自动化扫描与人工审核更新。通常情况下，核心规则库每周更新一次，确保屏蔽的有效性。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            如果误屏蔽了正常网站怎么办？
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            您可以在插件设置中找到“白名单”或“放行列表”功能，手动将正常网站添加进去，即可解除屏蔽限制。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            是否支持移动端使用？
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            目前该屏蔽服务主要提供浏览器插件版本。对于移动端用户，建议使用具备内容过滤功能的手机浏览器，或通过系统级的家庭防护功能进行辅助。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ady9屏蔽</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        致力于为用户提供安全、纯净的互联网浏览体验。通过技术手段过滤不良信息，守护您的数字生活。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#home">返回首页</a></li>
+                        <li><a href="#features">功能介绍</a></li>
+                        <li><a href="#steps">使用教程</a></li>
+                        <li><a href="#faq">帮助中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>技术支持邮箱: support@example.com</li>
+                        <li>反馈建议: feedback@example.com</li>
+                        <li>工作时间: 周一至周五 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ady9屏蔽官网 版权所有. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // FAQ Accordion
+        function toggleFaq(element) {
+            const parent = element.parentElement;
+            parent.classList.toggle('active');
+        }
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    // Close mobile menu if open
+                    document.getElementById('mainNav').classList.remove('active');
+                    
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

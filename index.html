@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="专业俄语翻译器在线工具，支持俄语翻译成中文、英语及其他语言。提供精准的文本翻译、文档翻译及实时语音翻译服务，帮助您快速跨越语言障碍。">
+    <meta name="keywords" content="俄语翻译器,俄语翻译,在线翻译,俄汉互译,文本翻译">
+    <title>俄语翻译器-专业在线俄汉互译与文档翻译工具</title>
+    <style>
+        :root {
+            --primary-color: #2b5a84;
+            --primary-hover: #1e3f5e;
+            --accent-color: #d32f2f;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions .btn {
+            padding: 8px 16px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            margin-right: 10px;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #eef2f5 0%, #dbe4eb 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* Translation Interface */
+        .translator-container {
+            max-width: var(--container-width);
+            margin: -40px auto 40px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .translator-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .lang-switch {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: background 0.2s;
+        }
+
+        .lang-btn:hover {
+            background-color: var(--bg-light);
+        }
+
+        .swap-btn {
+            color: var(--primary-color);
+            padding: 8px;
+            border-radius: 50%;
+            background-color: var(--bg-light);
+        }
+
+        .swap-btn:hover {
+            background-color: #e1e8ed;
+        }
+
+        .translation-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .translation-area {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .input-header select {
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            background: var(--bg-light);
+            cursor: pointer;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 16px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            resize: vertical;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .action-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tool-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+            padding: 6px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-btn:hover {
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+        }
+
+        .btn-translate {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 32px;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-translate:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-translate:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+            background-color: var(--bg-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        .features-grid {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            background-color: var(--bg-light);
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(43, 90, 132, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 8px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Usage Guide */
+        .guide {
+            padding: 60px 0;
+            background-color: var(--bg-light);
+        }
+
+        .guide-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .guide-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .guide-text h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+        }
+
+        .guide-text p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .steps-list {
+            list-style: none;
+        }
+
+        .steps-list li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .steps-list li::before {
+            content: counter(step);
+            counter-increment: step;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .guide-image img {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 60px 0;
+            background-color: var(--bg-white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 16px;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 20px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: var(--text-secondary);
+        }
+
+        .faq-answer p {
+            padding-bottom: 20px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 48px 0 24px;
+            margin-top: auto;
+        }
+
+        .footer-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .footer-brand h3 {
+            color: white;
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: var(--container-width);
+            margin: 32px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <a href="#" class="logo">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            俄语翻译器
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">在线翻译</a></li>
+                <li><a href="#">文档翻译</a></li>
+                <li><a href="#">语音朗读</a></li>
+                <li><a href="#">API接口</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="#" class="btn btn-outline">登录</a>
+            <a href="#" class="btn btn-primary">免费使用</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-inner" style="max-width: var(--container-width); margin: 0 auto; padding: 0 20px;">
+            <h1>准确、高效的俄语翻译工具</h1>
+            <p>无论是商务邮件、学术论文还是日常交流，我们的俄语翻译器都能为您提供专业、流畅的翻译结果。支持俄语-中文、俄语-英语互译。</p>
+        </div>
+    </section>
+
+    <section class="translator-container">
+        <div class="translator-card">
+            <div class="lang-switch">
+                <button class="lang-btn">
+                    <span>中文</span>
+                    <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                </button>
+                <button class="swap-btn" id="swapBtn" title="互换语言">
+                    <svg style="width:20px;height:20px;fill:currentColor" viewBox="0 0 24 24"><path d="M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z"/></svg>
+                </button>
+                <button class="lang-btn">
+                    俄语
+                    <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                </button>
+            </div>
+            <div class="translation-area">
+                <div class="input-group">
+                    <div class="input-header">
+                        <select>
+                            <option>中文</option>
+                            <option>英语</option>
+                            <option>日语</option>
+                        </select>
+                        <div class="tool-icons">
+                            <button class="icon-btn" title="按回车翻译">
+                                <svg style="width:18px;height:18px;fill:currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                            </button>
+                            <button class="icon-btn" title="清空内容">
+                                <svg style="width:18px;height:18px;fill:currentColor" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <textarea id="sourceText" placeholder="请输入或粘贴需要翻译的中文内容..."></textarea>
+                    <div class="action-row">
+                        <span style="font-size:0.8rem; color:#999">0 / 5000</span>
+                        <button class="btn-translate" id="translateBtn">
+                            <svg style="width:18px;height:18px;fill:currentColor" viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+                            立即翻译
+                        </button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-header">
+                        <select>
+                            <option>俄语</option>
+                            <option>中文</option>
+                            <option>英语</option>
+                        </select>
+                        <div class="tool-icons">
+                            <button class="icon-btn" title="复制翻译结果">
+                                <svg style="width:18px;height:18px;fill:currentColor" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                            </button>
+                            <button class="icon-btn" title="朗读俄语">
+                                <svg style="width:18px;height:18px;fill:currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <textarea id="targetText" placeholder="翻译结果将显示在这里..." readonly></textarea>
+                    <div class="action-row">
+                        <span style="font-size:0.8rem; color:#999">翻译完成</span>
+                        <button class="icon-btn" style="color:var(--primary-color)" title="下载为文件">
+                            <svg style="width:18px;height:18px;fill:currentColor" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="section-header">
+            <h2>为什么选择我们的俄语翻译器</h2>
+            <p>基于先进的神经网络机器翻译技术，为您提供最接近人工水平的翻译体验。</p>
+        </div>
+        <div class="features-grid">
+            <article class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </div>
+                <h3>精准俄汉互译</h3>
+                <p>针对俄语语法特点（如变格、变位）进行优化，准确翻译商务文档、文学作品及日常对话。</p>
+            </article>
+            <article class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+                </div>
+                <h3>快速响应</h3>
+                <p>无需等待，输入即译。支持批量文本处理，毫秒级响应速度，提升您的工作效率。</p>
+            </article>
+            <article class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v2h2v5h2v-5h2v-2z"/></svg>
+                </div>
+                <h3>多语种支持</h3>
+                <p>不仅限于俄语，还支持英语、日语、法语等30多种语言互译，满足全球化沟通需求。</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="guide">
+        <div class="guide-content">
+            <div class="guide-text">
+                <h2>简单三步，轻松翻译</h2>
+                <p>无论是学习俄语的学生，还是需要处理俄语文件的商务人士，都能在几分钟内掌握使用方法。</p>
+                <ol class="steps-list" style="counter-reset: step;">
+                    <li style="counter-increment: step;">在输入框中输入或粘贴需要翻译的中文内容。</li>
+                    <li style="counter-increment: step;">选择目标语言（如俄语），点击“立即翻译”按钮。</li>
+                    <li style="counter-increment: step;">查看翻译结果，支持一键复制或下载文档。</li>
+                </ol>
+            </div>
+            <div class="guide-image">
+                <img src="https://picsum.photos/seed/translate_tool/600/400.jpg" alt="俄语翻译器使用界面示意图">
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="section-header">
+            <h2>常见问题解答</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">翻译结果不准确怎么办？</button>
+                <div class="faq-answer">
+                    <p>我们的翻译器基于大数据训练，但在处理专业术语（如医学、法律）时可能存在偏差。建议您针对特定领域进行校对，或使用高级文档翻译功能。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">支持批量翻译吗？</button>
+                <div class="faq-answer">
+                    <p>本在线工具适合单次文本翻译。如果您需要批量翻译大量文档，请使用我们的桌面版软件或联系商务API服务。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">翻译内容会保存或泄露吗？</button>
+                <div class="faq-answer">
+                    <p>为了保护您的隐私，我们承诺所有翻译请求均在本地处理或加密传输，翻译完成后不会保留您的文本数据。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <h3>俄语翻译器</h3>
+            <p>致力于为全球用户提供最便捷的跨语言沟通工具。连接世界，从每一次翻译开始。</p>
+        </div>
+        <div class="footer-col">
+            <h4>产品功能</h4>
+            <ul>
+                <li><a href="#">在线文本翻译</a></li>
+                <li><a href="#">PDF文档翻译</a></li>
+                <li><a href="#">图片OCR识别</a></li>
+                <li><a href="#">语音朗读服务</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>帮助中心</h4>
+            <ul>
+                <li><a href="#">使用教程</a></li>
+                <li><a href="#">计费说明</a></li>
+                <li><a href="#">隐私政策</a></li>
+                <li><a href="#">联系我们</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>关注我们</h4>
+            <ul>
+                <li><a href="#">微信公众号</a></li>
+                <li><a href="#">微博</a></li>
+                <li><a href="#">知乎专栏</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2023 俄语翻译器在线版 版权所有 | 京ICP备12345678号</p>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const translateBtn = document.getElementById('translateBtn');
+        const sourceText = document.getElementById('sourceText');
+        const targetText = document.getElementById('targetText');
+        const swapBtn = document.getElementById('swapBtn');
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        // 模拟翻译功能
+        translateBtn.addEventListener('click', function() {
+            const text = sourceText.value.trim();
+            if (!text) {
+                targetText.value = '';
+                return;
+            }
+            
+            // 按钮加载状态
+            const originalText = translateBtn.innerHTML;
+            translateBtn.innerHTML = '翻译中...';
+            translateBtn.disabled = true;
+
+            // 模拟API延迟
+            setTimeout(() => {
+                // 简单的模拟翻译逻辑（实际应调用API）
+                let translated = '';
+                if (sourceText.nextElementSibling.querySelector('select').value === '俄语') {
+                    // 模拟俄语转中文
+                    translated = '[模拟翻译] ' + text + ' (俄语已翻译为中文)';
+                } else {
+                    // 模拟中文转俄语
+                    translated = '[模拟翻译] ' + text + ' (中文已翻译为俄语)';
+                }
+                
+                targetText.value = translated;
+                translateBtn.innerHTML = originalText;
+                translateBtn.disabled = false;
+            }, 800);
+        });
+
+        // 回车翻译
+        sourceText.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                translateBtn.click();
+            }
+        });
+
+        // 语言互换
+        swapBtn.addEventListener('click', function() {
+            const select1 = sourceText.parentElement.querySelector('select');
+            const select2 = targetText.parentElement.querySelector('select');
+            const temp = select1.value;
+            select1.value = select2.value;
+            select2.value = temp;
+            
+            // 交换文本内容（可选）
+            const tempText = sourceText.value;
+            sourceText.value = targetText.value;
+            targetText.value = tempText;
+        });
+
+        // FAQ 折叠
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                // 关闭其他
+                faqItems.forEach(other => other.classList.remove('active'));
+                // 切换当前
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+                      </html>

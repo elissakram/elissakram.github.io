@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>推特官网twitter - 全球实时资讯与社交网络平台</title>
+    <meta name="description" content="推特官网twitter提供全球范围内的实时资讯分享、社交互动与热点讨论平台。访问Twitter探索最新动态、参与热门话题、连接世界各地的用户，获取第一手新闻与观点。">
+    <meta name="keywords" content="推特官网twitter, Twitter, 社交网络, 实时资讯, 热门话题, 社交媒体">
+    <style>
+        :root {
+            --primary-color: #1d9bf0;
+            --primary-hover: #1a8cd8;
+            --bg-color: #ffffff;
+            --bg-secondary: #f7f9f9;
+            --text-main: #0f1419;
+            --text-secondary: #536471;
+            --border-color: #eff3f4;
+            --link-color: #1d9bf0;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            --container-width: 1280px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* Header */
+        header {
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            height: 64px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            fill: var(--text-main);
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-secondary {
+            background-color: rgba(29, 155, 240, 0.1);
+            color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(29, 155, 240, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            background-color: var(--bg-color);
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            padding: 24px;
+            border-radius: 16px;
+            background-color: var(--bg-secondary);
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        /* Content Layout (Left/Right) */
+        .content-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+            padding: 40px 0;
+        }
+
+        /* Main Feed */
+        .feed-header {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            gap: 16px;
+        }
+
+        .feed-tab {
+            padding-bottom: 16px;
+            border-bottom: 4px solid transparent;
+            color: var(--text-secondary);
+            font-weight: 700;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .feed-tab.active {
+            color: var(--text-main);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .tweet-card {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tweet-header {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #e1e8ed;
+            object-fit: cover;
+        }
+
+        .tweet-info h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .tweet-info span {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .tweet-content {
+            font-size: 15px;
+            margin-bottom: 12px;
+            white-space: pre-wrap;
+        }
+
+        .tweet-actions {
+            display: flex;
+            justify-content: space-between;
+            max-width: 425px;
+            color: var(--text-secondary);
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .action-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .action-btn.reply:hover { color: #f91880; }
+        .action-btn.retweet:hover { color: #00ba7c; }
+        .action-btn.like:hover { color: #f91880; }
+        .action-btn.view:hover { color: var(--text-main); }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 16px 14px 48px;
+            border-radius: 9999px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-secondary);
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            fill: var(--text-secondary);
+        }
+
+        .trend-item {
+            padding: 12px 0;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .trend-item:last-child {
+            border-bottom: none;
+        }
+
+        .trend-meta {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .trend-name {
+            font-weight: 700;
+            margin: 2px 0;
+        }
+
+        .trend-count {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .sidebar-footer {
+            margin-top: 24px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .sidebar-footer a {
+            color: var(--link-color);
+            margin-left: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-secondary);
+            padding: 40px 0;
+            margin-top: 40px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .footer-col h5 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .footer-col ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .copyright {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 16px;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                gap: 32px;
+                font-weight: 500;
+                font-size: 15px;
+            }
+
+            .nav-links a:hover {
+                text-decoration: underline;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <a href="#" class="logo-area">
+            <svg class="logo-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <g>
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                </g>
+            </svg>
+            <span>推特官网twitter</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#">首页</a>
+            <a href="#">探索</a>
+            <a href="#">通知</a>
+            <a href="#">消息</a>
+            <a href="#">个人资料</a>
+        </nav>
+        <div class="header-actions">
+            <button class="btn btn-primary">发布</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <h1>连接世界，分享当下</h1>
+            <p>推特官网twitter 是全球最受欢迎的实时社交网络平台。在这里，你可以关注你感兴趣的领域，参与热点讨论，获取第一手资讯。</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">注册账号</button>
+                <button class="btn btn-secondary">登录</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <h3>实时资讯</h3>
+                    <p>第一时间获取突发新闻、体育赛事、娱乐动态和科技突破。推特上的声音无处不在。</p>
+                </article>
+                <article class="feature-card">
+                    <h3>多元讨论</h3>
+                    <p>参与全球范围内的公共讨论，表达观点，倾听他人，在思想的碰撞中获取新知。</p>
+                </article>
+                <article class="feature-card">
+                    <h3>兴趣社群</h3>
+                    <p>无论你是喜欢编程、摄影、游戏还是艺术，都能在这里找到志同道合的社群。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-layout">
+        <div class="main-feed">
+            <div class="feed-header">
+                <div class="feed-tab active">推荐</div>
+                <div class="feed-tab">关注</div>
+                <div class="feed-tab">热门</div>
+            </div>
+
+            <!-- Tweet 1 -->
+            <article class="tweet-card">
+                <div class="tweet-header">
+                    <img src="https://picsum.photos/seed/user1/48/48" alt="Avatar" class="avatar">
+                    <div class="tweet-info">
+                        <h4>科技前沿</h4>
+                        <span>@tech_news · 2小时前</span>
+                    </div>
+                </div>
+                <div class="tweet-content">
+                    新一代人工智能助手正式发布，能够进行多模态交互，极大地提升了工作效率。你对这项技术有什么看法？#AI #科技
+                </div>
+                <div class="tweet-actions">
+                    <div class="action-btn reply">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z"></path></svg>
+                        124
+                    </div>
+                    <div class="action-btn retweet">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"></path></svg>
+                        562
+                    </div>
+                    <div class="action-btn like">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"></path></svg>
+                        1.2k
+                    </div>
+                    <div class="action-btn view">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+                        2.4k
+                    </div>
+                </div>
+            </article>
+
+            <!-- Tweet 2 -->
+            <article class="tweet-card">
+                <div class="tweet-header">
+                    <img src="https://picsum.photos/seed/user2/48/48" alt="Avatar" class="avatar">
+                    <div class="tweet-info">
+                        <h4>设计灵感</h4>
+                        <span>@design_daily · 5小时前</span>
+                    </div>
+                </div>
+                <div class="tweet-content">
+                    今天的配色方案分享：深蓝与珊瑚色的碰撞，既专业又充满活力。这种搭配在网页设计中非常受欢迎。#UI #UX #Design
+                </div>
+                <div class="tweet-actions">
+                    <div class="action-btn reply">89</div>
+                    <div class="action-btn retweet">210</div>
+                    <div class="action-btn like">542</div>
+                    <div class="action-btn view">1.1k</div>
+                </div>
+            </article>
+
+            <!-- Tweet 3 -->
+            <article class="tweet-card">
+                <div class="tweet-header">
+                    <img src="https://picsum.photos/seed/user3/48/48" alt="Avatar" class="avatar">
+                    <div class="tweet-info">
+                        <h4>全球旅行</h4>
+                        <span>@travel_world · 8小时前</span>
+                    </div>
+                </div>
+                <div class="tweet-content">
+                    终于来到了梦想中的目的地！风景如画，空气清新。这里的日落简直美得让人窒息。📷 #旅行 #风景 #美景
+                </div>
+                <div class="tweet-actions">
+                    <div class="action-btn reply">342</div>
+                    <div class="action-btn retweet">890</div>
+                    <div class="action-btn like">3.5k</div>
+                    <div class="action-btn view">8.2k</div>
+                </div>
+            </article>
+        </div>
+
+        <aside class="sidebar">
+            <div class="search-box">
+                <svg class="search-icon" viewBox="0 0 24 24"><path d="M10.25 3.75c-3.59 0-6.5 2.91-6.5 6.5s2.91 6.5 6.5 6.5c1.795 0 3.419-.726 4.596-1.904 1.178-1.177 1.904-2.801 1.904-4.596 0-3.59-2.91-6.5-6.5-6.5zm-8.5 6.5c0-4.694 3.806-8.5 8.5-8.5s8.5 3.806 8.5 8.5c0 1.986-.682 3.815-1.824 5.262l4.781 4.781-1.414 1.414-4.781-4.781c-1.447 1.142-3.276 1.824-5.262 1.824-4.694 0-8.5-3.806-8.5-8.5z"></path></svg>
+                <input type="text" class="search-input" placeholder="搜索推特官网twitter">
+            </div>
+
+            <div class="trend-item">
+                <div class="trend-meta">趋势 · 全球</div>
+                <div class="trend-name">#人工智能</div>
+                <div class="trend-count">125万条推文</div>
+            </div>
+            <div class="trend-item">
+                <div class="trend-meta">趋势 · 美国</div>
+                <div class="trend-name">奥运会</div>
+                <div class="trend-count">89万条推文</div>
+            </div>
+            <div class="trend-item">
+                <div class="trend-meta">趋势 · 中国</div>
+                <div class="trend-name">乡村振兴</div>
+                <div class="trend-count">45万条推文</div>
+            </div>
+            <div class="trend-item">
+                <div class="trend-meta">趋势 · 娱乐</div>
+                <div class="trend-name">新电影上映</div>
+                <div class="trend-count">32万条推文</div>
+            </div>
+
+            <div class="sidebar-footer">
+                <a href="#">服务条款</a>
+                <a href="#">隐私政策</a>
+                <a href="#">Cookie 政策</a>
+                <a href="#">无障碍</a>
+                <a href="#">广告信息</a>
+                <a href="#">关于</a>
+                <a href="#">职位</a>
+                <a href="#">品牌资源</a>
+                <a href="#">推广</a>
+                <a href="#">博客</a>
+                <a href="#">状态</a>
+                <a href="#">帮助</a>
+                <a href="#">登录</a>
+                <a href="#">注册</a>
+            </div>
+        </aside>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h5>推特官网twitter</h5>
+                <ul>
+                    <li><a href="#">关于</a></li>
+                    <li><a href="#">博彩</a></li>
+                    <li><a href="#">工作</a></li>
+                    <li><a href="#">品牌</a></li>
+                    <li><a href="#">广告</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>功能</h5>
+                <ul>
+                    <li><a href="#">Twitter Blue</a></li>
+                    <li><a href="#">媒体</a></li>
+                    <li><a href="#">书籍</a></li>
+                    <li><a href="#">应用</a></li>
+                    <li><a href="#">开发者</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">© 2023 X Corp.</div>
+            <div class="social-icons">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+
+</body>
+</html>

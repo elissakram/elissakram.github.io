@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>女奥特曼-特摄百科与角色图鉴大全</title>
+    <meta name="description" content="女奥特曼专题站，收录历代女性奥特曼角色详细信息、战斗数据、登场作品及粉丝同人图鉴。提供女奥特曼角色对比、变身道具解析及特摄文化深度解析。">
+    <meta name="keywords" content="女奥特曼,女性奥特曼,希卡利,利迦,赛罗,特摄,奥特曼系列">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00d2ff;
+            --secondary-color: #3a7bd5;
+            --accent-color: #ff0055;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f4f7f6;
+            --bg-card: #ffffff;
+            --spacing-unit: 16px;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://picsum.photos/seed/ultraman/1920/600') center/cover;
+            opacity: 0.3;
+            mix-blend-mode: overlay;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 210, 255, 0.6);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        /* Character Cards */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .card-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #f0f4f8;
+            color: var(--text-light);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        /* Special Feature Section */
+        .feature-section {
+            background: white;
+        }
+
+        .feature-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .feature-image {
+            flex: 1 1 400px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .feature-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .feature-content {
+            flex: 1 1 400px;
+        }
+
+        .feature-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .feature-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .data-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .data-list strong {
+            color: var(--secondary-color);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table th {
+            background: #f8f9fa;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: #aaa;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                display: none; /* Simplified for mobile */
+            }
+            
+            .nav-wrapper {
+                justify-content: center;
+            }
+
+            .feature-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <a href="#" class="logo">
+            <span>✦</span> 女奥特曼百科
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#intro">角色简介</a></li>
+                <li><a href="#list">角色列表</a></li>
+                <li><a href="#data">数据对比</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>女性光之巨人</h1>
+            <p>探索特摄世界中闪耀的女性奥特曼形象。从赛罗的母亲赛莎拉，到拥有女性形态的利迦，以及希卡利的创造，她们展现了光之巨人的多样与力量。</p>
+            <a href="#list" class="btn">查看完整图鉴</a>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section id="intro" class="container">
+        <div class="section-title">
+            <h2>关于女性奥特曼</h2>
+            <p>在奥特曼系列漫长的历史中，女性奥特曼的角色经历了从象征性存在到独立主角的演变</p>
+        </div>
+        
+        <article class="feature-section">
+            <div class="feature-container">
+                <div class="feature-image">
+                    <img src="https://picsum.photos/seed/sarasa/600/400" alt="赛莎拉奥特曼">
+                </div>
+                <div class="feature-content">
+                    <h3>光之家族的传承</h3>
+                    <p>赛莎拉是赛罗奥特曼的母亲，光之国M78星云的一员。虽然她在正剧中出场时间短暂，但作为高阶战士，她展示了超越普通奥特战士的战斗技巧和光辉身姿，象征着光之家族的血脉与传承。</p>
+                    <p>女性奥特曼往往被赋予了更复杂的情感内核，她们不仅是战士，更是母亲、姐妹或创造者，为特摄故事增添了温情与深度。</p>
+                    <ul class="data-list" style="margin-top: 20px;">
+                        <li><span>所属星球</span> <strong>M78星云</strong></li>
+                        <li><span>登场作品</span> <strong>《捷德奥特曼》</strong></li>
+                        <li><span>能力特征</span> <strong>光线技能、飞行</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- Character List Section -->
+    <section id="list" class="container">
+        <div class="section-title">
+            <h2>经典角色图鉴</h2>
+            <p>盘点历代出现的女性奥特曼及相关形态</p>
+        </div>
+
+        <div class="grid-3">
+            <!-- Card 1 -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/sarasa_card/400/250" alt="赛莎拉" class="card-img">
+                <div class="card-body">
+                    <span class="card-tag">M78星云</span>
+                    <h3 class="card-title">赛莎拉奥特曼</h3>
+                    <p class="card-text">赛罗的母亲，光之国的高阶战士。在《捷德奥特曼》中短暂登场，展现了强大的实力，是赛罗力量的源泉之一。</p>
+                    <a href="#" style="color: var(--primary-color); font-weight: 600; font-size: 0.9rem;">查看详情 &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/rikiya/400/250" alt="利迦" class="card-img">
+                <div class="card-body">
+                    <span class="card-tag">人间体：佳田透</span>
+                    <h3 class="card-title">利迦奥特曼</h3>
+                    <p class="card-text">由佳田透变身，拥有女性形态“利迦·菲莱”。这是奥特曼系列中罕见的拥有明确女性形态设定的角色，打破了传统的性别刻板印象。</p>
+                    <a href="#" style="color: var(--primary-color); font-weight: 600; font-size: 0.9rem;">查看详情 &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/ultrawoman/400/250" alt="女奥特曼" class="card-img">
+                <div class="card-body">
+                    <span class="card-tag">象征形象</span>
+                    <h3 class="card-title">女性形态</h3>
+                    <p class="card-text">在《奥特银河格斗》等衍生作品中，赛罗、赛罗娜等角色曾使用女性形态战斗。这种形态通常设计得更加纤细优雅，但战斗风格依然凌厉。</p>
+                    <a href="#" style="color: var(--primary-color); font-weight: 600; font-size: 0.9rem;">查看详情 &rarr;</a>
+                </div>
+            </article>
+            
+            <!-- Card 4 -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/kaguya/400/250" alt="月神" class="card-img">
+                <div class="card-body">
+                    <span class="card-tag">新世代战士</span>
+                    <h3 class="card-title">月神奥特曼</h3>
+                    <p class="card-text">作为赛罗的妹妹，月神拥有独特的月光能力。虽然主要以男性形态战斗，但其设定与女性身份紧密相关，代表了光之国的新生代力量。</p>
+                    <a href="#" style="color: var(--primary-color); font-weight: 600; font-size: 0.9rem;">查看详情 &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Data Comparison Section -->
+    <section id="data" class="container">
+        <div class="section-title">
+            <h2>形态对比分析</h2>
+            <p>不同女性形态的能力与设定差异</p>
+        </div>
+        <div style="overflow-x: auto;">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>角色/形态</th>
+                        <th>首次登场</th>
+                        <th>主要能力</th>
+                        <th>特点</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>赛莎拉</strong></td>
+                        <td>《捷德奥特曼》第12话</td>
+                        <td>赛罗飞踢、光线</td>
+                        <td>高阶战士，母性光辉</td>
+                    </tr>
+                    <tr>
+                        <td><strong>利迦·菲莱</strong></td>
+                        <td>《爱迪奥特曼》第21话</td>
+                        <td>利迦光线、利迦飞踢</td>
+                        <td>人间体为女性，拥有女性形态</td>
+                    </tr>
+                    <tr>
+                        <td><strong>赛罗娜</strong></td>
+                        <td>《奥特银河格斗》</td>
+                        <td>赛罗飞踢、赛罗光线</td>
+                        <td>赛罗女性化变身，战斗风格一致</td>
+                    </tr>
+                    <tr>
+                        <td><strong>月神</strong></td>
+                        <td>《奥特银河格斗》</td>
+                        <td>月之光、奥特屏障</td>
+                        <td>赛罗之妹，操控月光</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="container">
+        <div class="section-title">
+            <h2>常见问题解答</h2>
+            <p>关于女奥特曼的疑问与解答</p>
+        </div>
+        <div class="grid-3" style="gap: 20px;">
+            <article class="card" style="padding: 20px;">
+                <h3 style="margin-bottom: 10px; color: var(--secondary-color);">利迦是第一个女奥特曼吗？</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light);">利迦是拥有女性形态的奥特曼。但在设定上，赛莎拉作为高阶战士，其女性身份的确认度更高。目前官方设定中明确以女性身份战斗的角色较少，多以象征性或变身形态出现。</p>
+            </article>
+            <article class="card" style="padding: 20px;">
+                <h3 style="margin-bottom: 10px; color: var(--secondary-color);">为什么女奥特曼角色较少？</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light);">这主要与特摄题材的传统创作习惯有关。早期作品多以男性主角为主，女性角色多为辅助或象征。但随着观众群体的变化，近年来的衍生作品（如《奥特银河格斗》）开始增加女性战士的戏份和深度。</p>
+            </article>
+            <article class="card" style="padding: 20px;">
+                <h3 style="margin-bottom: 10px; color: var(--secondary-color);">赛罗的母亲是谁？</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light);">赛罗的母亲是赛莎拉。在《捷德奥特曼》剧情中，她为了保护儿子而现身，展现了极高的实力。</p>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>女奥特曼百科</h4>
+                <p>致力于收录和整理奥特曼系列中所有女性战士及相关角色的资料，为特摄爱好者提供详尽的图鉴信息。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#intro">角色简介</a></li>
+                    <li><a href="#list">角色列表</a></li>
+                    <li><a href="#data">数据对比</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>相关资源</h4>
+                <ul>
+                    <li><a href="#">奥特银河格斗</a></li>
+                    <li><a href="#">捷德奥特曼</a></li>
+                    <li><a href="#">爱迪奥特曼</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 女奥特曼百科站. All Rights Reserved. 本站内容仅供学习交流使用.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

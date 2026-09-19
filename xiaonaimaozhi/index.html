@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小奶猫直播-治愈系萌宠互动与实时观看平台</title>
+    <meta name="description" content="小奶猫直播致力于提供最治愈的萌宠实时互动体验。在这里，你可以观看专业铲屎官直播猫咪日常、参与实时互动、学习养猫知识，并加入温暖的萌宠社区。">
+    <meta name="keywords" content="小奶猫直播,萌宠直播,猫咪直播,治愈系,实时互动,铲屎官">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #FF9A9E;
+            --primary-dark: #F67075;
+            --secondary-color: #A18CD1;
+            --bg-color: #FDFBF7;
+            --card-bg: #FFFFFF;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-dark);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-login {
+            padding: 8px 20px;
+            border: 1px solid var(--primary-color);
+            border-radius: 20px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .btn-login:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #FFF1EB 0%, #ACE0F9 100%);
+            padding: 60px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: #2d3436;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #636e72;
+            margin-bottom: 30px;
+        }
+
+        .search-bar {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            background: white;
+            border-radius: 30px;
+            padding: 5px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            outline: none;
+            border-radius: 25px;
+        }
+
+        .search-bar button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .search-bar button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Main Layout */
+        .main-container {
+            max-width: var(--container-width);
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 240px 1fr 280px;
+            gap: 30px;
+        }
+
+        /* Sidebar Left */
+        .sidebar-left {
+            position: sticky;
+            top: 90px;
+            height: fit-content;
+        }
+
+        .category-list li {
+            margin-bottom: 10px;
+        }
+
+        .category-list a {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            border-radius: 8px;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        .category-list a:hover, .category-list a.active {
+            background-color: rgba(255, 154, 158, 0.1);
+            color: var(--primary-dark);
+        }
+
+        .category-list a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Main Content */
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+        }
+
+        .live-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .live-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .live-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-thumb {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #eee;
+        }
+
+        .card-thumb img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .live-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #FF4757;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .live-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background-color: white;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        .card-tags span {
+            background-color: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 5px;
+            font-size: 10px;
+        }
+
+        /* Sidebar Right */
+        .sidebar-right {
+            position: sticky;
+            top: 90px;
+            height: fit-content;
+        }
+
+        .widget-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .widget-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .rank-list {
+            counter-reset: rank;
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .rank-item::before {
+            counter-increment: rank;
+            content: counter(rank);
+            width: 20px;
+            height: 20px;
+            background-color: #eee;
+            color: #999;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .rank-item:nth-child(1)::before { background-color: #FFD700; color: white; }
+        .rank-item:nth-child(2)::before { background-color: #C0C0C0; color: white; }
+        .rank-item:nth-child(3)::before { background-color: #CD7F32; color: white; }
+
+        .rank-info h4 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .rank-info p {
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2d3436;
+            color: #dfe6e9;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #b2bec3;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            color: #636e72;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 200px 1fr;
+            }
+            .sidebar-right {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* Simplified for mobile */
+            }
+            .main-container {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+            }
+            .sidebar-left {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .live-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <span>🐱</span> 小奶猫直播
+            </a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">猫咪日常</a>
+                <a href="#">萌宠互动</a>
+                <a href="#">铲屎官社区</a>
+                <a href="#">猫咪百科</a>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="btn-login">登录 / 注册</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>治愈你的不开心</h1>
+                <p>在这里，每一声软糯的喵喵叫都是对心灵的抚慰。加入小奶猫直播，实时观看可爱猫咪的憨态。</p>
+                <form class="search-bar" onsubmit="event.preventDefault();">
+                    <input type="text" placeholder="搜索品种、主播或直播内容...">
+                    <button type="submit">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <div class="main-container">
+            <!-- Left Sidebar -->
+            <aside class="sidebar-left">
+                <ul class="category-list">
+                    <li><a href="#" class="active"><i>🔥</i> 全部直播</a></li>
+                    <li><a href="#"><i>🧶</i> 毛绒绒陪伴</a></li>
+                    <li><a href="#"><i>🐱</i> 布偶猫</a></li>
+                    <li><a href="#"><i>🟡</i> 英短蓝猫</a></li>
+                    <li><a href="#"><i>🟤</i> 美短虎斑</a></li>
+                    <li><a href="#"><i>🥺</i> 豹猫</a></li>
+                    <li><a href="#"><i>💤</i> 睡觉直播</a></li>
+                    <li><a href="#"><i>🎮</i> 玩耍互动</a></li>
+                    <li><a href="#"><i>🥣</i> 进食时刻</a></li>
+                    <li><a href="#"><i>🚽</i> 铲屎日常</a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content -->
+            <section class="content-area">
+                <div class="section-header">
+                    <h2 class="section-title">正在直播</h2>
+                    <div class="sort-options">
+                        <a href="#" style="font-size: 14px; color: var(--primary-dark);">热度排序</a>
+                        <span style="color: #ddd; margin: 0 5px;">|</span>
+                        <a href="#" style="font-size: 14px; color: var(--text-sub);">最新开播</a>
+                    </div>
+                </div>
+
+                <div class="live-grid">
+                    <!-- Card 1 -->
+                    <article class="live-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/cat1/400/225" alt="布偶猫直播">
+                            <span class="live-badge">LIVE</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">云吸猫：布偶猫的温柔暴击</h3>
+                            <div class="card-meta">
+                                <span class="card-tags">
+                                    <span>布偶</span>
+                                    <span>陪伴</span>
+                                </span>
+                                <span>👁 1.2w</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="live-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/cat2/400/225" alt="英短蓝猫直播">
+                            <span class="live-badge">LIVE</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">英短蓝猫：今天也是高冷的一天</h3>
+                            <div class="card-meta">
+                                <span class="card-tags">
+                                    <span>英短</span>
+                                    <span>高冷</span>
+                                </span>
+                                <span>👁 8,542</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="live-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/cat3/400/225" alt="橘猫直播">
+                            <span class="live-badge">LIVE</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">橘猫减肥计划：吃播实况</h3>
+                            <div class="card-meta">
+                                <span class="card-tags">
+                                    <span>橘猫</span>
+                                    <span>吃播</span>
+                                </span>
+                                <span>👁 2.1w</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="live-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/cat4/400/225" alt="小奶猫直播">
+                            <span class="live-badge">LIVE</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">新生小奶猫：第一次睁眼</h3>
+                            <div class="card-meta">
+                                <span class="card-tags">
+                                    <span>新生</span>
+                                    <span>萌宠</span>
+                                </span>
+                                <span>👁 5,678</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 5 -->
+                    <article class="live-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/cat5/400/225" alt="流浪猫直播">
+                            <span class="live-badge">LIVE</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">流浪猫救助站：温暖的午后</h3>
+                            <div class="card-meta">
+                                <span class="card-tags">
+                                    <span>救助</span>
+                                    <span>治愈</span>
+                                </span>
+                                <span>👁 3,200</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 6 -->
+                    <article class="live-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/cat6/400/225" alt="猫咪玩耍">
+                            <span class="live-badge">LIVE</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">逗猫棒大作战：猫咪暴走</h3>
+                            <div class="card-meta">
+                                <span class="card-tags">
+                                    <span>玩耍</span>
+                                    <span>搞笑</span>
+                                </span>
+                                <span>👁 9,998</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="section-header">
+                    <h2 class="section-title">热门推荐</h2>
+                </div>
+                <div class="live-grid">
+                    <!-- More cards placeholder -->
+                    <article class="live-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/cat7/400/225" alt="长毛猫">
+                            <span class="live-badge">LIVE</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">长毛猫梳毛时间</h3>
+                            <div class="card-meta">
+                                <span class="card-tags"><span>长毛</span></span>
+                                <span>👁 4,100</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="live-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/cat8/400/225" alt="黑猫">
+                            <span class="live-badge">LIVE</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">深夜黑猫咖啡馆</h3>
+                            <div class="card-meta">
+                                <span class="card-tags"><span>夜猫</span></span>
+                                <span>👁 6,500</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Right Sidebar -->
+            <aside class="sidebar-right">
+                <div class="widget-card">
+                    <h3 class="widget-title">🔥 实时人气榜</h3>
+                    <ul class="rank-list">
+                        <li class="rank-item">
+                            <div class="rank-info">
+                                <h4>布偶猫：温柔乡</h4>
+                                <p>主播：铲屎官小王</p>
+                            </div>
+                        </li>
+                        <li class="rank-item">
+                            <div class="rank-info">
+                                <h4>英短蓝猫：高冷范</h4>
+                                <p>主播：喵星人基地</p>
+                            </div>
+                        </li>
+                        <li class="rank-item">
+                            <div class="rank-info">
+                                <h4>橘猫：干饭王</h4>
+                                <p>主播：胖橘日常</p>
+                            </div>
+                        </li>
+                        <li class="rank-item">
+                            <div class="rank-info">
+                                <h4>小奶猫：呼噜声</h4>
+                                <p>主播：新手奶爸</p>
+                            </div>
+                        </li>
+                        <li class="rank-item">
+                            <div class="rank-info">
+                                <h4>流浪猫：午睡</h4>
+                                <p>主播：救助站阿姨</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="widget-card">
+                    <h3 class="widget-title">📝 养猫小贴士</h3>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 10px;">
+                        <strong>如何挑选健康的小奶猫？</strong><br>
+                        观察眼睛是否明亮无分泌物，鼻子湿润无鼻涕，毛发是否顺滑有光泽。选择性格活泼、不躲避人的幼猫通常更健康。
+                    </p>
+                    <a href="#" style="font-size: 12px; color: var(--primary-color);">查看更多科普 →</a>
+                </div>
+
+                <div class="widget-card">
+                    <h3 class="widget-title">📅 近期活动</h3>
+                    <ul style="font-size: 13px; color: #666;">
+                        <li style="margin-bottom: 8px; border-bottom: 1px dashed #eee; padding-bottom: 8px;">
+                            <strong>周六萌宠见面会</strong><br>
+                            线下猫咪聚会，免费领养
+                        </li>
+                        <li>
+                            <strong>萌宠摄影大赛</strong><br>
+                            投稿赢取猫粮大奖
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h3>关于小奶猫直播</h3>
+                <p style="font-size: 14px; color: #b2bec3; line-height: 1.8;">
+                    我们致力于打造最温馨的萌宠直播平台，连接每一个爱猫人士。在这里，你可以找到治愈，找到陪伴，找到属于你的“云吸猫”时光。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h3>频道导航</h3>
+                <ul>
+                    <li><a href="#">猫咪日常</a></li>
+                    <li><a href="#">萌宠百科</a></li>
+                    <li><a href="#">领养救助</a></li>
+                    <li><a href="#">铲屎官论坛</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>帮助中心</h3>
+                <ul>
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">违规举报</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>关注我们</h3>
+                <p style="font-size: 14px; color: #b2bec3;">
+                    微信公众号<br>
+                    小奶猫直播官方
+                </p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 小奶猫直播 版权所有. 仅供展示使用.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

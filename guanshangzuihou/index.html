@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="关上最后的门02 在线阅读，提供高画质漫画阅读体验。探索悬疑惊悚故事线，查看最新章节更新时间及阅读指南。">
+    <meta name="keywords" content="关上最后的门02,漫画,在线阅读,悬疑,惊悚">
+    <title>关上最后的门02 - 悬疑惊悚漫画在线阅读与章节解析</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-body: #121212;
+            --bg-card: #1e1e1e;
+            --bg-nav: rgba(18, 18, 18, 0.95);
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent: #ff5252;
+            --accent-hover: #ff1744;
+            --border: #333;
+            --radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Nav */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: var(--bg-nav);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(to bottom, rgba(18,18,18,0.3), var(--bg-body)), url('https://picsum.photos/seed/closedoor/1920/1080') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: rgba(255, 82, 82, 0.15);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .stat-item h4 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .stat-item span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Layout Grid */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* Chapter List */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 4px solid var(--accent);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chapter-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chapter-item {
+            background-color: var(--bg-card);
+            padding: 20px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .chapter-item:hover {
+            transform: translateX(5px);
+            border-color: var(--accent);
+        }
+
+        .chapter-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .chapter-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .chapter-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-right: 15px;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 25px;
+            border: 1px solid var(--border);
+        }
+
+        .card h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 25px;
+            height: 25px;
+            background-color: #333;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { background-color: var(--accent); color: white; }
+        .rank-list li:nth-child(2) .rank-num { background-color: #ff9800; color: white; }
+        .rank-list li:nth-child(3) .rank-num { background-color: #ffc107; color: black; }
+
+        .rank-title {
+            font-size: 0.95rem;
+            flex: 1;
+        }
+
+        .rank-score {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Synopsis */
+        .synopsis-box {
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .synopsis-box p {
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border);
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                display: none; /* Simplified mobile nav for demo */
+            }
+            .nav-actions {
+                display: none;
+            }
+            .hero {
+                height: 400px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-inner">
+        <a href="#" class="logo">关上最后的门<span>02</span></a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">章节目录</a></li>
+                <li><a href="#">角色介绍</a></li>
+                <li><a href="#">相关推荐</a></li>
+            </ul>
+        </nav>
+        <div class="nav-actions">
+            <button class="btn btn-outline">登录</button>
+            <button class="btn btn-primary">收藏作品</button>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="tag">悬疑 · 惊悚 · 恐怖</span>
+            <h1>关上最后的门 02</h1>
+            <p>当现实与梦境的边界彻底破碎，所有的线索都指向那扇不该被打开的门。第二季剧情升级，揭开更深层的秘密。</p>
+            <div style="display: flex; gap: 15px;">
+                <button class="btn btn-primary">立即阅读</button>
+                <button class="btn btn-outline">查看图解</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h4>9.8</h4>
+                    <span>评分</span>
+                </div>
+                <div class="stat-item">
+                    <h4>12.5w</h4>
+                    <span>人气</span>
+                </div>
+                <div class="stat-item">
+                    <h4>更新中</h4>
+                    <span>状态</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="main-layout">
+        <!-- Left Content: Chapters -->
+        <section>
+            <div class="section-title">
+                <span>章节目录</span>
+                <a href="#" style="font-size: 0.9rem; color: var(--accent);">查看全部 ></a>
+            </div>
+            
+            <div class="chapter-list">
+                <article class="chapter-item">
+                    <div class="chapter-info">
+                        <h3>第 45 话：回响</h3>
+                        <p>门后的世界开始出现裂痕，主角发现记忆中的片段与现实发生了重叠。</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="chapter-date">2023-10-24</span>
+                        <button class="btn btn-primary" style="padding: 6px 15px; font-size: 0.85rem;">阅读</button>
+                    </div>
+                </article>
+
+                <article class="chapter-item">
+                    <div class="chapter-info">
+                        <h3>第 44 话：守门人</h3>
+                        <p>为了阻止门再次打开，必须找到真正的守门人，但线索似乎指向了已故之人。</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="chapter-date">2023-10-18</span>
+                        <button class="btn btn-primary" style="padding: 6px 15px; font-size: 0.85rem;">阅读</button>
+                    </div>
+                </article>
+
+                <article class="chapter-item">
+                    <div class="chapter-info">
+                        <h3>第 43 话：双重身</h3>
+                        <p>主角在镜中看到了另一个自己，那个自己似乎掌握着开启“最后的门”的钥匙。</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="chapter-date">2023-10-12</span>
+                        <button class="btn btn-primary" style="padding: 6px 15px; font-size: 0.85rem;">阅读</button>
+                    </div>
+                </article>
+
+                <article class="chapter-item">
+                    <div class="chapter-info">
+                        <h3>第 42 话：未完的日记</h3>
+                        <p>整理旧物时发现的一本日记，记录了前作中未提及的关键转折点。</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="chapter-date">2023-10-05</span>
+                        <button class="btn btn-primary" style="padding: 6px 15px; font-size: 0.85rem;">阅读</button>
+                    </div>
+                </article>
+
+                <article class="chapter-item">
+                    <div class="chapter-info">
+                        <h3>第 41 话：深夜的敲门声</h3>
+                        <p>无论怎么锁门，门外总会有敲击声。这一次，敲击声变成了清晰的对话声。</p>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="chapter-date">2023-09-28</span>
+                        <button class="btn btn-primary" style="padding: 6px 15px; font-size: 0.85rem;">阅读</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Right Sidebar -->
+        <aside>
+            <!-- Synopsis -->
+            <div class="card">
+                <h3>剧情简介</h3>
+                <div class="synopsis-box">
+                    <p>《关上最后的门》第二季继续深入探索主角林默在一场离奇事故后的心理变化。故事发生在一个看似普通的公寓楼，但随着主角不断深入调查，发现这栋楼本身就是一座巨大的迷宫。第二季的标题“关上最后的门”象征着必须切断与过去、与潜意识中恐惧源头的联系。</p>
+                    <p>本季新增了多位关键角色，包括一位神秘的侦探和一位似乎知道一切的房东。随着剧情推进，读者将逐渐拼凑出导致一切悲剧的真相。</p>
+                </div>
+            </div>
+
+            <!-- Ranking -->
+            <div class="card">
+                <h3>热门推荐</h3>
+                <ul class="rank-list">
+                    <li>
+                        <span class="rank-num">1</span>
+                        <a href="#" class="rank-title">深夜食堂：异界篇</a>
+                        <span class="rank-score">9.9</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">2</span>
+                        <a href="#" class="rank-title">逃出精神病院</a>
+                        <span class="rank-score">9.8</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">3</span>
+                        <a href="#" class="rank-title">第25个小时</a>
+                        <span class="rank-score">9.7</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">4</span>
+                        <a href="#" class="rank-title">鬼吹灯之龙岭迷窟</a>
+                        <span class="rank-score">9.6</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">5</span>
+                        <a href="#" class="rank-title">迷宫饭</a>
+                        <span class="rank-score">9.5</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tags -->
+            <div class="card">
+                <h3>作品标签</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <span class="tag" style="background: #333; color: #fff; cursor: pointer;">悬疑推理</span>
+                    <span class="tag" style="background: #333; color: #fff; cursor: pointer;">恐怖惊悚</span>
+                    <span class="tag" style="background: #333; color: #fff; cursor: pointer;">心理博弈</span>
+                    <span class="tag" style="background: #333; color: #fff; cursor: pointer;">超自然</span>
+                    <span class="tag" style="background: #333; color: #fff; cursor: pointer;">剧情向</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">平台介绍</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">加入我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">阅读指南</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>法律条款</h4>
+                <ul>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">侵权申诉</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">官方微博</a></li>
+                    <li><a href="#">微信公众号</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 关上最后的门02阅读站. All rights reserved. 本站内容仅供个人学习交流，请勿用于商业用途。</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+                      </html>

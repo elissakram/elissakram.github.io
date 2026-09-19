@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="韩国演艺圈悲惨全集 - 深度梳理韩国娱乐圈的悲剧事件、艺人自杀案例、丑闻曝光及背后的社会心理分析，提供客观、严谨的资料回顾与行业反思。">
+    <meta name="keywords" content="韩国演艺圈悲惨全集, 韩国娱乐圈悲剧, 韩国艺人自杀, 韩国娱乐圈丑闻, 韩国演艺圈事件">
+    <title>韩国演艺圈悲惨全集 - 行业悲剧回顾与深度分析</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-body: #f4f4f5;
+            --bg-card: #ffffff;
+            --text-main: #18181b;
+            --text-secondary: #71717a;
+            --accent-red: #dc2626;
+            --accent-red-bg: #fef2f2;
+            --border-color: #e4e4e7;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            height: var(--header-height);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e1e24 0%, #2d2d35 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #a1a1aa;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Intro Section */
+        .intro {
+            padding: 60px 0;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Stats Section */
+        .stats {
+            background-color: var(--bg-card);
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Main Content */
+        .content-area {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--accent-red);
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-left: 15px;
+            font-weight: normal;
+        }
+
+        /* Timeline / List Styles */
+        .timeline-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .timeline-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            gap: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .date-badge {
+            background-color: var(--accent-red-bg);
+            color: var(--accent-red);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .item-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .item-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: #f4f4f5;
+            color: var(--text-secondary);
+            margin-right: 5px;
+        }
+
+        /* Category Grid */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .category-header {
+            padding: 20px;
+            background-color: #fafafa;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .category-header h3 {
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .category-list {
+            padding: 15px;
+        }
+
+        .category-list li {
+            margin-bottom: 10px;
+        }
+
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .category-list a:hover {
+            color: var(--accent-red);
+        }
+
+        /* Analysis Section */
+        .analysis-section {
+            background-color: #fafafa;
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .analysis-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .analysis-text p {
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+        }
+
+        .analysis-box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-red);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #18181b;
+            color: #a1a1aa;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-links h4 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #27272a;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+            .timeline-item { flex-direction: column; }
+            .date-badge { width: 100%; }
+            .analysis-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            nav { display: none; } /* Simplified for mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">韩国<span>演艺圈悲惨全集</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">全集概览</a></li>
+                    <li><a href="#timeline">时间线</a></li>
+                    <li><a href="#categories">分类目录</a></li>
+                    <li><a href="#analysis">深度分析</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>韩国演艺圈悲惨全集：历史回顾与行业反思</h1>
+            <p>收录自20世纪90年代至今，韩国娱乐圈发生的重大悲剧事件、艺人自杀案例及社会丑闻。旨在通过客观记录，探讨娱乐圈生态与心理健康议题。</p>
+        </div>
+    </section>
+
+    <section class="intro">
+        <div class="container">
+            <p class="intro-text">
+                韩国演艺圈以其高强度的竞争环境、严格的等级制度和近乎严苛的媒体监管著称。本站整理了历年来引发社会广泛关注的“悲惨事件”，为读者提供一个全面、客观的资料库，以铭记逝者，并引发对行业现状的理性思考。
+            </p>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>30+</h3>
+                    <p>十年间重大艺人离世案例</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>涉及自杀与自杀未遂事件</p>
+                </div>
+                <div class="stat-item">
+                    <h3>20+</h3>
+                    <p>演艺圈性丑闻与舆论危机</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1000+</h3>
+                    <p>相关报道与深度分析文章</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container content-area">
+        
+        <!-- Timeline Section -->
+        <section id="timeline">
+            <h2 class="section-title">事件时间线 <span>精选历史回顾</span></h2>
+            <div class="timeline-list">
+                
+                <article class="timeline-item">
+                    <div class="date-badge">2008年9月</div>
+                    <div class="item-content">
+                        <h3>郑多彬（Choi Jin-ryul）离世</h3>
+                        <p>韩国著名女演员郑多彬被发现死于首尔家中，年仅26岁。她因出演多部电视剧广受欢迎，其突然离世震惊了整个韩国演艺界，引发了关于娱乐圈压力与抑郁情绪的广泛讨论。</p>
+                        <span class="tag">自杀</span>
+                        <span class="tag">女演员</span>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <div class="date-badge">2009年10月</div>
+                    <div class="item-content">
+                        <h3>李恩珠（Lee Eun-joo）离世</h3>
+                        <p>因主演电影《蔷花，红莲》而成名的李恩珠被发现上吊自杀，年仅24岁。她在生前曾饱受抑郁症困扰，并在遗书中表达了对自己演艺生涯的焦虑和对公司的依赖。她的离世成为韩国演艺圈的一个标志性转折点。</p>
+                        <span class="tag">自杀</span>
+                        <span class="tag">女演员</span>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <div class="date-badge">2014年10月</div>
+                    <div class="item-content">
+                        <h3>崔雪莉（Sulli）离世</h3>
+                        <p>前少女时代成员雪莉被发现死于家中，年仅25岁。作为公众人物，她长期遭受网络暴力和舆论压力。她的离世促使韩国社会开始重新审视网络霸凌现象以及对女性艺人的审视标准。</p>
+                        <span class="tag">自杀</span>
+                        <span class="tag">偶像</span>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <div class="date-badge">2017年10月</div>
+                    <div class="item-content">
+                        <h3>具荷拉（Koo Hara）离世</h3>
+                        <p>前KARA成员具荷拉被发现死于家中，年仅28岁。她在生前曾遭遇前男友的暴力威胁与勒索，并长期处于心理创伤中。她的去世再次将家暴、网络骚扰与艺人心理健康议题推向风口浪尖。</p>
+                        <span class="tag">自杀</span>
+                        <span class="tag">家暴</span>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <div class="date-badge">2019年11月</div>
+                    <div class="item-content">
+                        <h3>赵秀彬离世</h3>
+                        <p>韩国女演员赵秀彬被发现于家中去世，年仅39岁。她因出演《主君的太阳》等剧广为人知。她的离世与抑郁症有关，引发了业内对中老年艺人心理健康关注不足的反思。</p>
+                        <span class="tag">自杀</span>
+                        <span class="tag">女演员</span>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="categories" style="margin-top: 80px;">
+            <h2 class="section-title">分类目录 <span>按事件类型浏览</span></h2>
+            <div class="category-grid">
+                
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3>🎭 自杀与抑郁</h3>
+                    </div>
+                    <ul class="category-list">
+                        <li><a href="#">郑多彬事件始末</a> <span>2008</span></li>
+                        <li><a href="#">李恩珠：破碎的偶像梦</a> <span>2009</span></li>
+                        <li><a href="#">雪莉：网络暴力的牺牲品</a> <span>2014</span></li>
+                        <li><a href="#">具荷拉：家暴与心理创伤</a> <span>2017</span></li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3>⚖️ 丑闻与争议</h3>
+                    </div>
+                    <ul class="category-list">
+                        <li><a href="#">张紫妍事件与行业潜规则</a> <span>2009</span></li>
+                        <li><a href="#">李胜利夜店门事件</a> <span>2019</span></li>
+                        <li><a href="#">朴载相（Psy）抄袭争议</a> <span>2013</span></li>
+                        <li><a href="#">演员涉毒事件汇总</a> <span>2010s</span></li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3>🎬 演艺事故</h3>
+                    </div>
+                    <ul class="category-list">
+                        <li><a href="#">拍摄现场意外事故</a> <span>历年</span></li>
+                        <li><a href="#">综艺节目事故与争议</a> <span>历年</span></li>
+                        <li><a href="#">舞台事故与设备故障</a> <span>历年</span></li>
+                        <li><a href="#">交通意外与行业反思</a> <span>历年</span></li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3>🧠 心理健康</h3>
+                    </div>
+                    <ul class="category-list">
+                        <li><a href="#">抑郁症在演艺圈的成因</a> <span>深度分析</span></li>
+                        <li><a href="#">艺人心理危机干预机制</a> <span>行业研究</span></li>
+                        <li><a href="#">网络霸凌对心理的摧残</a> <span>社会观察</span></li>
+                        <li><a href="#">粉丝文化中的阴暗面</a> <span>社会心理</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <section class="analysis-section">
+        <div class="container">
+            <div class="analysis-grid">
+                <div class="analysis-text">
+                    <h3>行业生态与心理健康的深度解析</h3>
+                    <p>韩国演艺圈的高压环境是导致悲剧频发的土壤。从严格的上下级关系（“前辈后辈”文化）到近乎苛刻的身材管理要求，艺人们长期处于精神紧绷状态。</p>
+                    <p>此外，媒体的过度曝光和社交媒体时代的网络暴力，使得艺人几乎没有喘息的空间。本栏目致力于提供超越表面新闻的深度分析，探讨如何构建更健康的娱乐圈环境。</p>
+                </div>
+                <div class="analysis-box">
+                    <h4>核心关注点</h4>
+                    <ul style="margin-top: 15px; color: var(--text-main);">
+                        <li style="margin-bottom: 10px;">✓ 心理危机干预体系的缺失</li>
+                        <li style="margin-bottom: 10px;">✓ 网络暴力的法律界定与执行</li>
+                        <li style="margin-bottom: 10px;">✓ 经纪公司的管理责任</li>
+                        <li style="margin-bottom: 10px;">✓ 社会舆论对逝者的二次伤害</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>韩国演艺圈悲惨全集</h2>
+                    <p>一个致力于客观记录与理性反思的资料库。我们不制造焦虑，只记录历史，旨在唤起对人性、心理与行业生态的关注。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>资料分类</h4>
+                    <ul>
+                        <li><a href="#">自杀事件</a></li>
+                        <li><a href="#">丑闻档案</a></li>
+                        <li><a href="#">法律诉讼</a></li>
+                        <li><a href="#">行业报告</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>相关链接</h4>
+                    <ul>
+                        <li><a href="#">韩国演艺业协会</a></li>
+                        <li><a href="#">心理健康热线</a></li>
+                        <li><a href="#">反网络暴力倡议</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 韩国演艺圈悲惨全集资料库. 保留所有权利。本站内容仅供资料回顾与学术参考。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                          </html>
